@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgres:15
+    container_name: infection-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5432:5432"
+    volumes:
+      # persistentes DB-Cluster
+      - pgdata:/var/lib/postgresql/data
+      # Init-Scripts (läuft nur, wenn /var/lib/postgresql/data leer ist)
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+
+volumes:
+  pgdata: 
