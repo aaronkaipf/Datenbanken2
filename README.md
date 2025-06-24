@@ -12,10 +12,10 @@ Ein modulares, sauberes Contact-Tracing-System für Infektionsketten, entwickelt
 
 ```mermaid
 graph TD
-    A[app (CLI/Entry)] -->|nutzt| B[jdbc-repo-impl (JDBC-Repo)]
-    B -->|implementiert| C[core (Interfaces, Entities, Service-Logik)]
+    A[app CLI/Entry] -->|uses| B[jdbc-repo-impl JDBC-Repo]
+    B -->|implements| C[core Interfaces, Entities, Service-Logic]
     D[(PostgreSQL DB)]
-    B -->|verbindet| D
+    B -->|connects to| D
 ```
 
 - **core**: Enthält alle Entitäten, Service- und Repository-Interfaces, sowie die Service-Logik (ohne JDBC/JPA!)
