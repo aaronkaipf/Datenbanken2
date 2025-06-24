@@ -30,9 +30,8 @@ CREATE TABLE contact_events (
 
 -- Infection Chain Tabelle
 CREATE TABLE infection_chain (
-                                 id SERIAL PRIMARY KEY,
-                                 ancestor_report_id INTEGER REFERENCES infection_reports(id),
-                                 descendant_report_id INTEGER REFERENCES infection_reports(id),
-                                 descendant_user_id INTEGER REFERENCES users(id),
-                                 depth INTEGER
+    id SERIAL PRIMARY KEY,
+    ancestor_report_id INTEGER REFERENCES infection_reports(id),
+    descendant_user_id INTEGER REFERENCES users(id),
+    depth INTEGER
 ); 

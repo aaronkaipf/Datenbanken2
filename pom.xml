@@ -11,7 +11,7 @@
 
     <modules>
         <module>core</module>
-        <module>jdbc</module>
+        <module>jdbc-repo-impl</module>
         <module>app</module>
     </modules>
 
