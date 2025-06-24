@@ -82,4 +82,94 @@ mvn exec:java
 ---
 
 ## 📄 Lizenz
-MIT (oder nach Wunsch anpassen) 
+MIT
+
+---
+
+---
+
+# Contact Tracing System
+
+![Java](https://img.shields.io/badge/Java-17-blue?logo=java)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue?logo=postgresql)
+![Maven](https://img.shields.io/badge/Maven-Build-red?logo=apachemaven)
+
+A modular, clean contact tracing system for infection chains, developed with focus on Clean Architecture, testability and clear separation of core logic and implementation.
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    A[app CLI/Entry] -->|uses| B[jdbc-repo-impl JDBC-Repo]
+    B -->|implements| C[core Interfaces, Entities, Service-Logic]
+    D[(PostgreSQL DB)]
+    B -->|connects to| D
+```
+
+- **core**: Contains all entities, service and repository interfaces, as well as service logic (without JDBC/JPA!)
+- **jdbc-repo-impl**: JDBC implementation of repositories, database access
+- **app**: Entry point, CLI or main class
+
+---
+
+## ✨ Features
+- Users, contacts, infection reports and infection chains
+- Strict separation of core logic and implementation
+- JDBC-only (no Hibernate/JPA in core)
+- PostgreSQL database (Docker-ready)
+- Modular Maven build
+- Example SQL for DB setup (`db/init/01-create-tables.sql`)
+
+---
+
+## 🚀 Getting Started
+
+### 1. Start Database (Docker Compose)
+```bash
+docker-compose up -d
+```
+
+### 2. Create Tables
+The file `db/init/01-create-tables.sql` is automatically executed on first startup (see `docker-compose.yml`).
+
+### 3. Build & Run
+```bash
+mvn clean install
+cd app
+mvn exec:java
+```
+
+---
+
+## 📦 Module Overview
+
+| Module            | Purpose                                     |
+|-------------------|---------------------------------------------|
+| core              | Entities, Interfaces, Service Logic         |
+| jdbc-repo-impl    | JDBC Implementation of Repositories         |
+| app               | Entry Point (Main, CLI, possibly Tests)     |
+| db/init           | SQL Scripts for DB Setup                    |
+
+---
+
+## 🧑‍💻 Example Use Case
+
+1. **Create User**
+2. **Store Contact Event**
+3. **Report Infection**
+4. **Infection chains are automatically calculated**
+
+---
+
+## 🛠️ For Developers
+- **Build output (`target/`) is not in Git!**
+- Changes to entities → always adjust SQL schema as well
+- JDBC implementation only in module `jdbc-repo-impl`
+- Core remains free of framework or DB dependencies
+
+---
+
+## 📄 License
+MIT 
