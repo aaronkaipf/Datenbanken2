@@ -15,17 +15,14 @@ public interface Repository {
     ContactEvent saveContactEvent(ContactEvent event);
     List<ContactEvent> findContactEventsByUserId(Integer userId);
     List<ContactEvent> findAllContactEvents();
-    void deleteContactEvent(Integer id);
-    
+
     // Infection Report operations
     InfectionReport saveInfectionReport(InfectionReport report);
     List<InfectionReport> findInfectionReportsByUserId(Integer userId);
     List<InfectionReport> findAllInfectionReports();
-    void deleteInfectionReport(Integer id);
-    
+
     // Infection Chain operations
     InfectionChain saveInfectionChain(InfectionChain chain);
     List<InfectionChain> findInfectionChainsByAncestorReportId(Integer ancestorReportId);
     List<InfectionChain> findAllInfectionChains();
-    void deleteInfectionChain(Integer id);
-} 
+}

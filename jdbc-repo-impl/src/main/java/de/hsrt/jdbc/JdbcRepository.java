@@ -157,17 +157,7 @@ public class JdbcRepository implements Repository {
         }
         return events;
     }
-    
-    @Override
-    public void deleteContactEvent(Integer id) {
-        String sql = "DELETE FROM contact_events WHERE id = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Error deleting contact event", e);
-        }
-    }
+
     
     // Infection Report operations
     @Override
@@ -236,16 +226,7 @@ public class JdbcRepository implements Repository {
         return reports;
     }
     
-    @Override
-    public void deleteInfectionReport(Integer id) {
-        String sql = "DELETE FROM infection_reports WHERE id = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Error deleting infection report", e);
-        }
-    }
+
     
     // Infection Chain operations
     @Override
@@ -306,15 +287,5 @@ public class JdbcRepository implements Repository {
         }
         return chains;
     }
-    
-    @Override
-    public void deleteInfectionChain(Integer id) {
-        String sql = "DELETE FROM infection_chain WHERE id = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setInt(1, id);
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException("Error deleting infection chain", e);
-        }
-    }
+
 } 

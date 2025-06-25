@@ -82,11 +82,11 @@ public class Main {
             
             // Automatisch Infektionsketten für Alice erstellen (3 Tage vor/nach)
             List<InfectionChain> aliceChains = service.buildInfectionChainsForNewReport(irAlice, 3, 3);
-            System.out.println("  → Automatically created " + aliceChains.size() + " infection chains for Alice:");
+            System.out.println("  -> Automatically created " + aliceChains.size() + " infection chains for Alice:");
             for (InfectionChain chain : aliceChains) {
                 Optional<User> contactUser = service.getUserById(chain.getDescendantUserId());
                 if (contactUser.isPresent()) {
-                    System.out.println("    - " + alice.getName() + " → " + contactUser.get().getName() + " (depth " + chain.getDepth() + ")");
+                    System.out.println("    - " + alice.getName() + " -> " + contactUser.get().getName() + " (depth " + chain.getDepth() + ")");
                 }
             }
             

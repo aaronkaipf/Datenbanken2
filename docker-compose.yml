@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   db:
     image: postgres:15
@@ -6,13 +8,14 @@ services:
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: infection_db
     ports:
       - "5432:5432"
     volumes:
-      # persistentes DB-Cluster
+      # Persistent DB-Cluster
       - pgdata:/var/lib/postgresql/data
-      # Init-Scripts (läuft nur, wenn /var/lib/postgresql/data leer ist)
+      # Init scripts (run only when the DB is initialized)
       - ./db/init:/docker-entrypoint-initdb.d:ro
 
 volumes:
-  pgdata: 
+  pgdata:

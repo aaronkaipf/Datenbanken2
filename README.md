@@ -6,6 +6,8 @@
 
 Ein modulares, sauberes Contact-Tracing-System für Infektionsketten, entwickelt mit Fokus auf Clean Architecture, Testbarkeit und klare Trennung von Core-Logik und Implementierung.
 
+**Warum PostgreSQL?** Für Contact Tracing benötigen wir eine robuste, ACID-konforme Datenbank mit ausgezeichneter Unterstützung für komplexe Abfragen und Transaktionen. PostgreSQL bietet zudem native JSON-Unterstützung für flexible Datenspeicherung und hervorragende Performance bei zeitbasierten Abfragen - perfekt für Infektionsketten-Analysen.
+
 ---
 
 ## 🏗️ Architektur
@@ -95,6 +97,8 @@ MIT
 ![Maven](https://img.shields.io/badge/Maven-Build-red?logo=apachemaven)
 
 A modular, clean contact tracing system for infection chains, developed with focus on Clean Architecture, testability and clear separation of core logic and implementation.
+
+**Why PostgreSQL?** For contact tracing, we need a robust, ACID-compliant database with excellent support for complex queries and transactions. PostgreSQL also provides native JSON support for flexible data storage and outstanding performance for time-based queries - perfect for infection chain analysis.
 
 ---
 
